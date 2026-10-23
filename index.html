@@ -6,15 +6,17 @@
     <title>Asterium Ecosystem Hub</title>
     <meta name="description" content="Welcome to the Asterium Ecosystem. Explore HUMO (Stablecoin) and AUZ (Gold-backed) tokens on Solana.">
     <style>
-        body { font-family: system-ui, sans-serif; background: #0b0f19; color: #fff; text-align: center; padding: 50px 20px; }
-        h1 { color: #fbbf24; }
-        .links { margin-top: 30px; display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
-        a { color: #fff; text-decoration: none; background: #151b2b; padding: 15px 30px; border-radius: 8px; border: 1px solid #2a3441; transition: 0.3s; }
-        a:hover { border-color: #fbbf24; color: #fbbf24; }
+        :root { --bg: #0b0f19; --card: #151b2b; --text: #fff; --gold: #fbbf24; --border: #2a3441; }
+        body { font-family: system-ui, -apple-system, sans-serif; background: var(--bg); color: var(--text); text-align: center; padding: 50px 20px; margin: 0; }
+        h1 { color: var(--gold); font-size: 2.5rem; margin-bottom: 10px; }
+        p { color: #94a3b8; font-size: 1.1rem; }
+        .links { margin-top: 40px; display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
+        a { color: var(--text); text-decoration: none; background: var(--card); padding: 15px 30px; border-radius: 8px; border: 1px solid var(--border); transition: 0.3s; font-weight: 600; }
+        a:hover { border-color: var(--gold); color: var(--gold); transform: translateY(-3px); }
     </style>
 </head>
 <body>
-    <h1>Asterium Ecosystem</h1>
+    <h1>Asterium Ecosystem Hub</h1>
     <p>Select a destination:</p>
     <div class="links">
         <a href="/ecosystem.html">🗺️ Ecosystem Map</a>
