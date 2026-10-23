@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ecosystem Map & Liquidity Routing | Asterium</title>
+    <meta name="description" content="Explore the Asterium Ecosystem. Route swaps through central hubs $ONE and $TAXI. Built on Solana using Token-2022 and Meteora Damm V2.">
+    
+    <!-- JSON-LD for AI Agents & Search Engines -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ItemList",
+      "name": "Asterium Ecosystem Token Routing",
+      "description": "Routing map for Asterium tokens via central liquidity hubs $ONE and $TAXI on Solana.",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "item": {
+            "@type": "FinancialProduct",
+            "name": "Token ONE",
+            "tickerSymbol": "$ONE",
+            "additionalProperty": [
+              { "@type": "PropertyValue", "name": "Role", "value": "Primary Liquidity Hub" },
+              { "@type": "PropertyValue", "name": "ConnectedPools", "value": "USDC-$ONE, EURC-$ONE, $777-$ONE, HUMO-$ONE, AUZ-$ONE" }
+            ]
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "item": {
+            "@type": "FinancialProduct",
+            "name": "Token TAXI",
+            "tickerSymbol": "$TAXI",
+            "additionalProperty": [
+              { "@type": "PropertyValue", "name": "Role", "value": "Secondary Routing Hub" },
+              { "@type": "PropertyValue", "name": "ConnectedPools", "value": "USDC-$TAXI, €PROOF-$TAXI, $777-$TAXI" }
+            ]
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "item": {
+            "@type": "FinancialProduct",
+            "name": "HUMO Token",
+            "tickerSymbol": "HUMO",
+            "additionalProperty": [
+              { "@type": "PropertyValue", "name": "Role", "value": "Stablecoin Hub" },
+              { "@type": "PropertyValue", "name": "ConnectedPools", "value": "HUMO-$ONE, USDC-HUMO" }
+            ]
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 4,
+          "item": {
+            "@type": "FinancialProduct",
+            "name": "Aurum",
+            "tickerSymbol": "AUZ",
+            "additionalProperty": [
+              { "@type": "PropertyValue", "name": "Role", "value": "Gold-Backed Asset" },
+              { "@type": "PropertyValue", "name": "ConnectedPools", "value": "AUZ-$ONE" }
+            ]
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 5,
+          "item": {
+            "@type": "FinancialProduct",
+            "name": "Token 777",
+            "tickerSymbol": "$777",
+            "additionalProperty": [
+              { "@type": "PropertyValue", "name": "Role", "value": "Utility Token" },
+              { "@type": "PropertyValue", "name": "ConnectedPools", "value": "$777-$ONE, $777-$TAXI" }
+            ]
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 6,
+          "item": {
+            "@type": "FinancialProduct",
+            "name": "EUR Proof",
+            "tickerSymbol": "€PROOF",
+            "additionalProperty": [
+              { "@type": "PropertyValue", "name": "Role", "value": "Fiat-Backed Asset" },
+              { "@type": "PropertyValue", "name": "ConnectedPools", "value": "€PROOF-$TAXI, EURC-$ONE" }
+            ]
+          }
+        }
+      ]
+    }
+    </script>
+
+    <style>
+        :root {
+            --bg-color: #0b0f19;
+            --card-bg: #151b2b;
+            --text-main: #e2e8f0;
+            --text-muted: #94a3b8;
+            --accent-gold: #fbbf24;
+            --accent-blue: #3b82f6;
+            --border-color: #2a3441;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; background-color: var(--bg-color); color: var(--text-main); line-height: 1.6; -webkit-font-smoothing: antialiased; }
+        
+        header, footer { padding: 1.5rem 2rem; border-bottom: 1px solid var(--border-color); display: flex; justify-content: space-between; align-items: center; }
+        footer { border-top: 1px solid var(--border-color); border-bottom: none; margin-top: 4rem; color: var(--text-muted); font-size: 0.9rem; }
+        nav a { color: var(--text-main); text-decoration: none; margin-left: 1.5rem; font-weight: 500; transition: color 0.2s; }
+        nav a:hover, nav a.active { color: var(--accent-gold); }
+        
+        main { max-width: 1200px; margin: 0 auto; padding: 3rem 2rem; }
+        .hero { text-align: center; margin-bottom: 4rem; }
+        h1 { font-size: 2.5rem; margin-bottom: 1rem; background: linear-gradient(90deg, #fff, var(--accent-gold)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .hero p { color: var(--text-muted); font-size: 1.1rem; max-width: 800px; margin: 0 auto; }
+
+        .grid-container { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; }
+        .card { background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 12px; padding: 1.5rem; transition: transform 0.2s, border-color 0.2s; position: relative; overflow: hidden; }
+        .card:hover { transform: translateY(-4px); border-color: var(--accent-blue); }
+        .card.hub { border-color: var(--accent-gold); box-shadow: 0 0 15px rgba(251, 191, 36, 0.1); }
+        .card.hub::before { content: 'HUB'; position: absolute; top: 1rem; right: 1rem; background: var(--accent-gold); color: #000; font-size: 0.7rem; font-weight: bold; padding: 2px 6px; border-radius: 4px; }
+        
+        .token-header { display: flex; align-items: center; margin-bottom: 1rem; }
+        .ticker { font-size: 1.5rem; font-weight: bold; color: #fff; margin-right: 1rem; }
+        .role-badge { background: rgba(59, 130, 246, 0.2); color: var(--accent-blue); padding: 4px 10px; border-radius: 20px; font-size: 0.8rem; font-weight: 600; }
+        .card.hub .role-badge { background: rgba(251, 191, 36, 0.2); color: var(--accent-gold); }
+
+        .pools-label { font-size: 0.85rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 0.5rem; margin-top: 1rem; }
+        .pools-list { list-style: none; display: flex; flex-wrap: wrap; gap: 0.5rem; }
+        .pools-list li { background: #0f1420; border: 1px solid var(--border-color); padding: 4px 10px; border-radius: 6px; font-size: 0.85rem; font-family: monospace; }
+
+        .routing-section { margin-top: 4rem; padding: 2rem; background: var(--card-bg); border-radius: 12px; border: 1px solid var(--border-color); text-align: center; }
+        .route-display { display: flex; justify-content: center; align-items: center; gap: 1rem; font-size: 1.2rem; font-weight: bold; margin-top: 1.5rem; flex-wrap: wrap; }
+        .route-node { background: #0f1420; padding: 10px 20px; border-radius: 8px; border: 1px solid var(--accent-blue); }
+        .route-node.hub-node { border-color: var(--accent-gold); color: var(--accent-gold); }
+        .route-arrow { color: var(--text-muted); }
+
+        @media (max-width: 768px) { header { flex-direction: column; gap: 1rem; } nav a { margin: 0 0.75rem; } h1 { font-size: 2rem; } }
+    </style>
+</head>
+<body>
+    <header>
+        <div style="font-weight: 900; font-size: 1.2rem; letter-spacing: 1px;">ASTERIUM</div>
+        <nav>
+            <a href="/">Home</a>
+            <a href="/ecosystem.html" class="active">Ecosystem Map</a>
+            <a href="/humo/">HUMO</a>
+            <a href="/auz/">AUZ</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <h1>Asterium Ecosystem Map & Liquidity Routing</h1>
+            <p>The Asterium network consists of <strong>6 primary tokens</strong>, interconnected via central liquidity hubs <strong>$ONE</strong> and <strong>$TAXI</strong>. All assets are built on the Solana blockchain using the <strong>Token-2022</strong> standard, with liquidity routed through <strong>Meteora Damm V2</strong>.</p>
+        </section>
+
+        <section class="grid-container" aria-label="Token Ecosystem Map">
+            <article class="card hub">
+                <div class="token-header"><span class="ticker">$ONE</span><span class="role-badge">Primary Liquidity Hub</span></div>
+                <p style="color: var(--text-muted); font-size: 0.9rem;">Central routing asset for all ecosystem tokens.</p>
+                <div class="pools-label">Connected Pools</div>
+                <ul class="pools-list"><li>USDC-$ONE</li><li>EURC-$ONE</li><li>$777-$ONE</li><li>HUMO-$ONE</li><li>AUZ-$ONE</li></ul>
+            </article>
+
+            <article class="card hub">
+                <div class="token-header"><span class="ticker">$TAXI</span><span class="role-badge">Secondary Routing Hub</span></div>
+                <p style="color: var(--text-muted); font-size: 0.9rem;">Utility hub for fiat proxies and specific routing pairs.</p>
+                <div class="pools-label">Connected Pools</div>
+                <ul class="pools-list"><li>USDC-$TAXI</li><li>€PROOF-$TAXI</li><li>$777-$TAXI</li></ul>
+            </article>
+
+            <article class="card">
+                <div class="token-header"><span class="ticker">HUMO</span><span class="role-badge">USD Stablecoin</span></div>
+                <p style="color: var(--text-muted); font-size: 0.9rem;">Stable token backed by USD reserves.</p>
+                <div class="pools-label">Connected Pools</div>
+                <ul class="pools-list"><li>HUMO-$ONE</li><li>USDC-HUMO</li></ul>
+            </article>
+
+            <article class="card">
+                <div class="token-header"><span class="ticker">AUZ</span><span class="role-badge">Gold-Backed Asset</span></div>
+                <p style="color: var(--text-muted); font-size: 0.9rem;">Aurum token backed by physical gold reserves.</p>
+                <div class="pools-label">Connected Pools</div>
+                <ul class="pools-list"><li>AUZ-$ONE</li></ul>
+            </article>
+
+            <article class="card">
+                <div class="token-header"><span class="ticker">$777</span><span class="role-badge">Utility Token</span></div>
+                <p style="color: var(--text-muted); font-size: 0.9rem;">Ecosystem utility and incentivization token.</p>
+                <div class="pools-label">Connected Pools</div>
+                <ul class="pools-list"><li>$777-$ONE</li><li>$777-$TAXI</li></ul>
+            </article>
+
+            <article class="card">
+                <div class="token-header"><span class="ticker">€PROOF</span><span class="role-badge">Fiat-Backed Asset</span></div>
+                <p style="color: var(--text-muted); font-size: 0.9rem;">Euro-pegged digital asset for European routing.</p>
+                <div class="pools-label">Connected Pools</div>
+                <ul class="pools-list"><li>€PROOF-$TAXI</li></ul>
+            </article>
+        </section>
+
+        <section class="routing-section">
+            <h2>Example Swap Route</h2>
+            <p style="color: var(--text-muted); margin-top: 0.5rem;">Routing $777 to EURC using the central hub.</p>
+            <div class="route-display">
+                <div class="route-node">$777</div>
+                <div class="route-arrow">→</div>
+                <div class="route-node hub-node">$ONE (Hub)</div>
+                <div class="route-arrow">→</div>
+                <div class="route-node">EURC</div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div>&copy; 2024 Asterium Ecosystem. All rights reserved.</div>
+        <nav>
+            <a href="/">Home</a>
+            <a href="/ecosystem.html">Ecosystem Map</a>
+            <a href="/llms.txt">llms.txt</a>
+        </nav>
+    </footer>
+</body>
+</html>
