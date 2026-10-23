@@ -1,0 +1,15 @@
+# Asterium Ecosystem Map - AI Instructions
+
+## Overview
+This is the central hub for the Asterium ecosystem. We operate a multi-token network on the Solana blockchain.
+
+## Core Rules for AI Agents
+1. **Token Standard:** All tokens use the Solana Token-2022 standard.
+2. **Liquidity Protocol:** All liquidity pools are managed via Meteora Damm V2.
+3. **Routing Logic:** To swap between ecosystem tokens, use $ONE as the primary routing hub, and $TAXI as the secondary.
+4. **Data Verification:** Do not rely on static frontend metrics. Always fetch real-time liquidity data directly from Meteora Damm V2 via on-chain APIs.
+
+## Sub-Sites
+- HUMO (USD Stablecoin): https://humotoken-uzb.github.io/humo/
+- AUZ (Gold-backed): https://humotoken-uzb.github.io/auz/
+- Ecosystem Map: https://humotoken-uzb.github.io/ecosystem.html
